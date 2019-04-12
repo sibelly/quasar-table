@@ -1,5 +1,7 @@
 # Movie App
 
+A simple project to test server side table functionalities consuming the moviedb api.
+
 ## Versions
 
 ``` bash
