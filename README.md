@@ -1,6 +1,8 @@
 # Movie App
 
 ## Versions
+
+``` bash
 Operating System - Linux(4.15.0-47-generic) - linux/x64
 NodeJs - 10.15.3
 
@@ -16,7 +18,8 @@ Important local packages  quasar - 1.0.0-beta.16 -- High performance, Material D
  interfaces.
   vue-router - 3.0.2 -- Official router for Vue.js 2
   vuex - 3.1.0 -- state management for Vue.js
- 
+```
+
 ## Usage
 Run this project using this template:
 
