@@ -13,11 +13,10 @@ Global packages
   yarn - 0.32
   @quasar/cli - 1.0.0-beta.3
 
-Important local packages  quasar - 1.0.0-beta.16 -- High performance, Material Design 2, full front end stack with Vue.js -- build SPA, SSR, PWA, Hybrid Mobile Apps and
- Electron apps, all simultaneously using the same codebase
+Important local packages  quasar - 1.0.0-beta.16 
   @quasar/app - 1.0.0-beta.16 -- Quasar Framework App CLI
-  @quasar/extras - 1.1.1 -- Quasar Framework fonts, icons and animations  vue - 2.6.10 -- Reactive, component-oriented view layer for modern web
- interfaces.
+  @quasar/extras - 1.1.1  
+  vue - 2.6.10 
   vue-router - 3.0.2 -- Official router for Vue.js 2
   vuex - 3.1.0 -- state management for Vue.js
 ```
