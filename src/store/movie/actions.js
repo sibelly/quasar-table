@@ -6,7 +6,8 @@ export function index ({ commit }, payload) {
   return axios.get('https://api.themoviedb.org/3/discover/movie?', {
     params: {
       api_key: '2ed54a614803785fce2d7fe401cc3b21',
-      sort_by: payload.sort_by
+      sort_by: payload.sort_by,
+      page: payload.page
     }
   })
     .then((response) => {
