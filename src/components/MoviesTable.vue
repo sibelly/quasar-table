@@ -56,8 +56,8 @@ export default {
     }
   },
   created () {
-    this.pagination.sortBy = 'title'
-    this.pagination.descending = false
+    this.pagination.sortBy = 'popularity'
+    this.pagination.descending = true
   },
   mounted () {
     this.onRequest({
@@ -67,18 +67,19 @@ export default {
   },
   methods: {
     onRequest (requestProp) {
-      console.log('xxxxxxxxxxxxxxxxxxxxxxxxx=> ', requestProp)
       this.$store.dispatch('movie/index',
         {
           page: requestProp.pagination.page,
           sort_by: `${requestProp.pagination.sortBy}.${requestProp.pagination.descending ? 'desc' : 'asc'}`
         })
         .then((success) => {
-          console.log('ta no then da shared table => ', this.$store.getters)
           if (this.$store.getters['movie/getMovies']) {
             let aux = this.$store.getters['movie/getMovies']
             this.data = aux.results
             if (aux.page) {
+              // update whole pagination object based on the props you passed in your request method first
+              this.pagination = requestProp.pagination // -> the missing piece
+
               let total = aux.total_results
               let totalPages = aux.total_pages
               this.pagination.page = aux.page
