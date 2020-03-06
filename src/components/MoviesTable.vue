@@ -39,7 +39,7 @@ export default {
   name: 'Movies',
   data () {
     return {
-      title: 'Movies',
+      title: 'Movies Table',
       columns: [
         { name: 'title', label: 'Title', align: 'left', field: 'title', sortable: true },
         { name: 'popularity', label: 'Popularity', align: 'left', field: 'popularity', sortable: true },
