@@ -55,7 +55,7 @@ export default {
       })
       .then((success) => {
         if (this.$store.state.movie.movies) {
-          console.log('44444444444444444444 ', this.$store.state.movie.movies)
+          console.log('### beforeCreate', this.$store.state.movie.movies)
           this.movieOptions = this.$store.state.movie.movies.results
         }
       }).catch((err) => {
@@ -80,9 +80,10 @@ export default {
             })
             .then((success) => {
               if (this.$store.state.movie.moviesFiltered) {
-                console.log('44444444444444444444 ', this.$store.state.movie.movies)
+                console.log('### filterMovieOptions ', this.$store.state.movie.movies)
                 this.movieOptions = this.$store.state.movie.moviesFiltered.results
               }
+              val = ''
             }).catch((err) => {
               this.$q.notify({
                 color: 'red-4',
