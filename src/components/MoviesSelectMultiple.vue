@@ -2,21 +2,6 @@
   <div class="q-layout-padding">
     <div class="q-gutter-y-sm q-pa-md" style="max-width: 300px">
       <h6 style="font-weight: 400">Movies Multiple Select</h6>
-      <!-- <q-select
-        v-model="city"
-        label="City"
-        :options="cityOptions"
-        autocomplete="address-level2"
-      >
-        <template v-slot:no-option>
-          <q-item>
-            <q-item-section class="text-grey">
-              No results
-            </q-item-section>
-          </q-item>
-        </template>
-      </q-select> -->
-
       <q-select
         v-model="moviesSelected"
         label="Movies"
@@ -24,8 +9,12 @@
         use-input
         @filter="filterMovieOptions"
         multiple
-        option-value="title"
-        option-label="title"
+        :option-value="(m) => m.id"
+        :option-label="(m) => m.title"
+        debounce="300"
+        @add="(value) => { addSelectedMovie(value) }"
+        clearable
+        emit-value
       >
         <template v-slot:no-option>
           <q-item>
@@ -59,12 +48,6 @@ export default {
           this.movieOptions = this.$store.state.movie.movies.results
         }
       }).catch((err) => {
-        this.$q.notify({
-          color: 'red-4',
-          textColor: 'white',
-          icon: 'fas fa-check-circle',
-          message: 'Ops... Something went wrong!'
-        })
         console.error(err)
       })
   },
@@ -81,20 +64,17 @@ export default {
             .then((success) => {
               if (this.$store.state.movie.moviesFiltered) {
                 console.log('### filterMovieOptions ', this.$store.state.movie.movies)
-                this.movieOptions = this.$store.state.movie.moviesFiltered.results
+                this.filteredMovieOptions = this.$store.state.movie.moviesFiltered.results
               }
               val = ''
             }).catch((err) => {
-              this.$q.notify({
-                color: 'red-4',
-                textColor: 'white',
-                icon: 'fas fa-check-circle',
-                message: 'Ops... Something went wrong!'
-              })
               console.error(err)
             })
         }
       })
+    },
+    addSelectedMovie (value) {
+      console.log('====================', value)
     }
   }
 }
