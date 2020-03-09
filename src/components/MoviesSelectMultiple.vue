@@ -15,6 +15,7 @@
         @add="(value) => { addSelectedMovie(value) }"
         clearable
         emit-value
+        map-options
       >
         <template v-slot:no-option>
           <q-item>
